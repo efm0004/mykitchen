@@ -17,7 +17,7 @@ Future features will also allow you to use MyKitchen to plan your weekly meals, 
 
 ### **Links**
 [Trello Board](https://trello.com/b/rPAKVynp)
-[Deployed App] (localhost:3000)
+[Deployed App](localhost:3000)
 
 ### **Unsolved Problems**
 OMG EVERYTHING
@@ -33,9 +33,9 @@ OMG EVERYTHING
 #### **Extra Info**
 
 ##### Wireframes
-[Main Page](https://imgur.com/s4jgt5f)
-[Freezer & Menu](https://imgur.com/lVLUoHJ)
-[Recipes & Dishwasher](https://imgur.com/Jdh4Dld)
+![Main Page](https://imgur.com/s4jgt5f)
+![Freezer & Menu](https://imgur.com/lVLUoHJ)
+![Recipes & Dishwasher](https://imgur.com/Jdh4Dld)
 
 ##### ERD
-[Models](https://i.imgur.com/3g9v3t4.jpg)
+![Models](https://i.imgur.com/3g9v3t4.jpg)
