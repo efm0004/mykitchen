@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {Route, Link, NavLink, Switch, Redirect } from 'react-router-dom';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
-import {read} from 'fs';
+// import {read} from 'fs';
 import LoginPage from '../src/pages/LoginPage/LoginPage';
 import SignupPage from '../src/pages/SignupPage/SingupPage';
 import NavBar from '../src/components/NavBar/NavBar';
@@ -18,17 +18,17 @@ class App extends Component {
     this.setState({user: null});
   }
 
-  handleSignuporLogin = () => {
+  handleSignupOrLogin = () => {
     this.setState({user: userService.getUser()});
   }
 
   render() {
     return (
       <div className="App">
-        <header className="App-header">
+        <header className="App-header">MyKitchen
         <NavBar 
-        user={this.state.user}
-        handleLogout={this.handleLogout}
+          user={this.state.user}
+          handleLogout={this.handleLogout}
         />
         </header>
         <Switch>
