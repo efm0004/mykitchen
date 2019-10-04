@@ -1,68 +1,41 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# **MyKitchen**
 
-## Available Scripts
+### **Introduction**
+MyKitchen is an all-in-one app that allows you to have access to your kitchen without having to be in it. MyKitchen allows you to easily keep an inventory of the items in your pantry, fridge, or freezer and automatically update your shopping lists accordingly. 
 
-In the project directory, you can run:
+Future features will also allow you to use MyKitchen to plan your weekly meals, save recipes, and automatically update your shopping list accordingly as well!
 
-### `npm start`
+### **Technologies Used**
+- React
+- Javascript
+- Express
+- Node
+- Mongoose
+- MongoDB
+- Heroku
+- HTML/CSS
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### **Links**
+[Trello Board](https://trello.com/b/rPAKVynp)
+[Deployed App] (localhost:3000)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### **Unsolved Problems**
+OMG EVERYTHING
 
-### `npm test`
+### **Future Enhancements**
+- Dishwasher: Clean or Dirty?
+- Weekly Menu creations - with full CRUD
+- Create and Save Recipes, incorporating categories
+- Be able to add saved Recipes to the weekly Menu
+- Create extra Shopping List functionality so that Recipes being added to the weekly Menu will check the inventory and add items that are not present to the Shopping List
+- Create a Chores List 
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### **Extra Info**
 
-### `npm run build`
+##### Wireframes
+[Main Page](https://imgur.com/s4jgt5f)
+[Freezer & Menu](https://imgur.com/lVLUoHJ)
+[Recipes & Dishwasher](https://imgur.com/Jdh4Dld)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+##### ERD
+[Models](https://i.imgur.com/3g9v3t4.jpg)
