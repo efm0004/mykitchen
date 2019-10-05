@@ -4,9 +4,10 @@ import {Route, Link, NavLink, Switch, Redirect } from 'react-router-dom';
 import './App.css';
 // import {read} from 'fs';
 import LoginPage from '../src/pages/LoginPage/LoginPage';
-import SignupPage from '../src/pages/SignupPage/SingupPage';
+import SignupPage from './pages/SignupPage/SignupPage';
 import NavBar from '../src/components/NavBar/NavBar';
 import userService from '../src/utils/userService';
+import KitchenPage from '../src/pages/KitchenPage/KitchenPage';
 
 class App extends Component {
   state = {
@@ -25,12 +26,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">MyKitchen
+        <header className="App-header">
         <NavBar 
           user={this.state.user}
           handleLogout={this.handleLogout}
         />
         </header>
+        <KitchenPage />
         <Switch>
           <Route path='/login' render={({history}) =>
             <LoginPage 
