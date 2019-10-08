@@ -23,5 +23,8 @@ async function getAll(req, res) {
 }
 
 async function deleteOne(req, res) {
-    //write function that will delete items in Invetory
+    //write function that will delete items in Inventory
+    Inventory.findByIdAndRemove(req.params.id).then(inventory => {
+        res.status(200).json(inventory);
+    }).catch(error => res.status(500).json())
 }

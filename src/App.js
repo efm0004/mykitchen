@@ -11,6 +11,7 @@ import KitchenPage from '../src/pages/KitchenPage/KitchenPage';
 import InventoryForm from './components/InventoryForm/InventoryForm';
 import ComingSoon from './components/ComingSoon/ComingSoon';
 import Inventory from './components/Inventory/Inventory';
+import Freezer from './components/Freezer/Freezer';
 
 class App extends Component {
   state = {
@@ -50,6 +51,32 @@ class App extends Component {
           />
       );
   })
+    
+  
+    //Third attempt
+    // var freezerInventory = this.state.inventories.filter((item) => {
+    //   return (item.location === 'Freezer');
+    // })
+
+    //Second attempt
+    // const freezerInventory = this.state.inventories.filter(item => item.location === 'Freezer')
+    
+    
+    //First attempt
+    // const freezerInventory = this.state.inventories.filter((item, idx) => {
+    //   return (
+    //     <Freezer 
+    //       key={idx}
+    //       name={item.name}
+    //       staple={item.staple}
+    //       quantity={item.quantity}
+    //       location={item.location}
+    //       inventories={item.inventories}
+    //       id={idx}
+    //     />
+    //   )
+    // })
+    
     return (
       <div className="App">
         <header className="App-header">
@@ -88,6 +115,9 @@ class App extends Component {
           <ul>
             {currentInventory}
           </ul>
+          <ul>
+            {/* {freezerInventory} */}
+          </ul>
         </div>
       </div>
     );
@@ -102,17 +132,3 @@ async function getAll() {
   const fetchJSON = await initialFetch.json();
   return await fetchJSON;
 }
-
-//example of how React talks to Express
-// async function getAll(){
-// 	const url = 'http://localhost:8000/api/posts'
-// 	const initalFetch = await fetch(url)
-// 	const fetchJSON = await initalFetch.json()
-// 	return await fetchJSON
-// }
-
-// async function handleVerbs(url, options){
-// 	const initalFetch = await fetch(url, options)
-// 	const fetchJSON = await initalFetch.json()
-// 	return await fetchJSON
-// }
