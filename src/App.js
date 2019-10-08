@@ -37,6 +37,15 @@ class App extends Component {
     this.setState({user: userService.getUser()});
   }
 
+  handleDelete = (id) => {
+    let newState = this.state.inventories.filter(
+      item => this.state.inventories[id] !== item
+    )
+    this.setState({
+      inventories: newState
+    })
+  }
+
   render() {
     const currentInventory = this.state.inventories.map((item, idx) => {
       return (
@@ -47,6 +56,7 @@ class App extends Component {
               quantity={item.quantity}
               location={item.location}
               inventories={item.inventories}
+              handleDelete={this.handleDelete}
               id={idx}
           />
       );
@@ -76,7 +86,7 @@ class App extends Component {
     //     />
     //   )
     // })
-    
+
     return (
       <div className="App">
         <header className="App-header">

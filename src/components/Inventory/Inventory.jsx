@@ -1,13 +1,13 @@
 import React from 'react';
 
-const Inventory = ({ name, staple, quantity, location, id}) => {
+const Inventory = ({ name, staple, quantity, location, handleDelete, id}) => {
         return (
             <li key={id}>
-                <button>X</button>
-                <p>Item Name: {name}</p> 
-                <p>Staple? {staple}</p> 
+                <button onClick={() => handleDelete(id)}>Delete</button>
+                <p>Item Name:  {name}</p> 
+                <p>Staple?  {staple}</p> 
                 <p>Qty: {quantity}</p>
-                <p>Donde?{location}</p> 
+                <p>Donde?  {location}</p> 
             </li>
         )
 }
