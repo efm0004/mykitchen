@@ -9,27 +9,33 @@ import CounterTop from '../../components/CounterTop/CounterTop';
 import Recipes from '../../components/Recipes/Recipes';
 import MenuBoard from '../../components/MenuBoard/MenuBoard';
 
-const KitchenPage = () => {
-    return (
-        <div className={styles.KitchenPage}>
-            <div className={styles.ShoppingBag}>
-                <ShoppingBag />
+class KitchenPage extends Component {
+    handleClick = (e) => {
+        e.preventDefault();
+    }
+
+    render() {
+        return (
+            <div className={styles.KitchenPage}>
+                <div className={styles.ShoppingBag}>
+                    <ShoppingBag />
+                </div>
+                <div className={styles.Refridgerator}>
+                    <Freezer />
+                    <Fridge />
+                </div>
+                <div className={styles.Pantry}>
+                    <Pantry />
+                </div>
+                <div className={styles.Counter}>
+                    <MenuBoard />
+                    <Recipes />
+                    <CounterTop />
+                    <Dishwasher />
+                </div>
             </div>
-            <div className={styles.Refridgerator}>
-                <Freezer />
-                <Fridge />
-            </div>
-            <div className={styles.Pantry}>
-                <Pantry />
-            </div>
-            <div className={styles.Counter}>
-                <MenuBoard />
-                <Recipes />
-                <CounterTop />
-                <Dishwasher />
-            </div>
-        </div>
-    )
+        )
+    }
 }
 
 export default KitchenPage;

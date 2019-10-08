@@ -6,7 +6,7 @@ class Dishwasher extends Component {
     render() {
         return (
             <div className={styles.Dishwasher}>
-                <a href="/"><img src={MKDishwasher}/></a>
+                <a href="/comingsoon"><img src={MKDishwasher}/></a>
             </div>
 
         )
