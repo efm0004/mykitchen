@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './KitchenPage.css';
+import styles from './KitchenPage.module.css';
 import Freezer from '../../components/Freezer/Freezer';
 import Fridge from '../../components/Fridge/Fridge';
 import Pantry from '../../components/Pantry/Pantry';
@@ -11,18 +11,18 @@ import MenuBoard from '../../components/MenuBoard/MenuBoard';
 
 const KitchenPage = () => {
     return (
-        <div className="KitchenPage">
-            <div className="Bag">
+        <div className={styles.KitchenPage}>
+            <div className={styles.ShoppingBag}>
                 <ShoppingBag />
             </div>
-            <div className="Refridgerator">
+            <div className={styles.Refridgerator}>
                 <Freezer />
                 <Fridge />
             </div>
-            <div className="Pantry">
+            <div className={styles.Pantry}>
                 <Pantry />
             </div>
-            <div className="Counter">
+            <div className={styles.Counter}>
                 <MenuBoard />
                 <Recipes />
                 <CounterTop />

@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
 import  MKShoppingBag from './MKShoppingBag.jpg';
 
-const ShoppingBag = () => (
-    <div>
-            <a href="/"><img src={MKShoppingBag}/></a>
-    </div>
-)
+class ShoppingBag extends Component {
+    render() {
+        return (
+            <div>
+                <a href="/"><img src={MKShoppingBag}/></a>
+            </div>
+        )
+    }
+}
+
 
 
 export default ShoppingBag;

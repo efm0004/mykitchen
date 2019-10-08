@@ -1,11 +1,15 @@
-import React from 'react';
-import './Fridge.css';
+import React, { Component} from 'react';
+import styles from './Fridge.module.css';
 import MKFridge from './MKFridge.jpg';
 
-const Fridge = () => (
-    <div>
-            <a href="/"><img src={MKFridge} className="Fridge"/></a>
-    </div>
-)
+class Fridge extends Component {
+    render() {
+        return (
+            <div>
+                <a href="/"><img src={MKFridge} className={styles.Fridge}/></a>
+            </div>
+        )
+    }
+}
 
 export default Fridge;

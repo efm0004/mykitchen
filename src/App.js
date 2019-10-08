@@ -8,6 +8,8 @@ import SignupPage from './pages/SignupPage/SignupPage';
 import NavBar from '../src/components/NavBar/NavBar';
 import userService from '../src/utils/userService';
 import KitchenPage from '../src/pages/KitchenPage/KitchenPage';
+import InventoryForm from './components/InventoryForm/InventoryForm';
+import ComingSoon from './components/ComingSoon/ComingSoon';
 
 class App extends Component {
   state = {
@@ -46,6 +48,17 @@ class App extends Component {
               handleSignupOrLogin={this.handleSignuporLogin}
             />
           } />
+          <Route path='/comingsoon' render={() =>
+            <ComingSoon />
+          }
+          />
+          />
+          <Route path='/freezer' render={({history}) =>
+            <InventoryForm 
+              history={history}
+              inventory={this.state.inventories}
+            />
+        } />
         </Switch>
       </div>
     );
@@ -53,3 +66,17 @@ class App extends Component {
 }
 
 export default App;
+
+//example of how React talks to Express
+// async function getAll(){
+// 	const url = 'http://localhost:8000/api/posts'
+// 	const initalFetch = await fetch(url)
+// 	const fetchJSON = await initalFetch.json()
+// 	return await fetchJSON
+// }
+
+// async function handleVerbs(url, options){
+// 	const initalFetch = await fetch(url, options)
+// 	const fetchJSON = await initalFetch.json()
+// 	return await fetchJSON
+// }

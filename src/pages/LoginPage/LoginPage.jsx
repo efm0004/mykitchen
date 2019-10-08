@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './LoginPage.css';
+import styles from './LoginPage.module.css';
 import userService from '../../utils/userService';
 
 class LoginPage extends Component {
@@ -20,12 +20,9 @@ class LoginPage extends Component {
   handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      console.log('hi1')
       await userService.login(this.state);
-      console.log('hi2')
       // Successfully signed up 
       this.props.handleSignupOrLogin();
-      console.log('hi3')
       this.props.history.push('/');
     } catch (err) {
       // Invalid user data (probably duplicate email)
@@ -35,7 +32,7 @@ class LoginPage extends Component {
 
   render() {
     return (
-      <div className="LoginPage">
+      <div className={styles.LoginPage}>
         <header className="header-footer">Log In</header>
         <form className="form-horizontal" onSubmit={this.handleSubmit} >
           <div className="form-group">

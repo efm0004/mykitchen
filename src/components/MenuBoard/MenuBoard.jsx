@@ -1,9 +1,10 @@
 import React from 'react';
-import  MKMenuBoard from './MKMenuBoard.jpg';
+import MKMenuBoard from './MKMenuBoard.jpg';
+import styles from './MenuBoard.module.css';
 
 const MenuBoard = () => (
-    <div>
-            <a href="/"><img src={MKMenuBoard}/></a>
+    <div className={styles.MenuBoardImage}>
+            <a href="/comingsoon"><img src={MKMenuBoard}/></a>
     </div>
 )
 
