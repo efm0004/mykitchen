@@ -63,29 +63,24 @@ class App extends Component {
   })
     
   
-    //Third attempt
-    // var freezerInventory = this.state.inventories.filter((item) => {
-    //   return (item.location === 'Freezer');
-    // })
+    //TODO : move to it's own component
+    var freezerInventory = this.state.inventories.filter((item) => {
+      console.log(item.location === "Freezer")
+      return (item.location === 'Freezer');
 
-    //Second attempt
-    // const freezerInventory = this.state.inventories.filter(item => item.location === 'Freezer')
-    
-    
-    //First attempt
-    // const freezerInventory = this.state.inventories.filter((item, idx) => {
-    //   return (
-    //     <Freezer 
-    //       key={idx}
-    //       name={item.name}
-    //       staple={item.staple}
-    //       quantity={item.quantity}
-    //       location={item.location}
-    //       inventories={item.inventories}
-    //       id={idx}
-    //     />
-    //   )
-    // })
+    })
+
+    var freezerList = freezerInventory.map((item, idx) => {
+      return(
+
+        <div key={idx}>
+          <p>{item.name}</p>
+        </div>
+        
+      )
+    })
+
+    //end TO DO
 
     return (
       <div className="App">
@@ -126,7 +121,7 @@ class App extends Component {
             {currentInventory}
           </ul>
           <ul>
-            {/* {freezerInventory} */}
+            {freezerList}
           </ul>
         </div>
       </div>
