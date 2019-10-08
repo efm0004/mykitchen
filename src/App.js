@@ -38,11 +38,22 @@ class App extends Component {
   }
 
   handleDelete = (id) => {
-    let newState = this.state.inventories.filter(
-      item => this.state.inventories[id] !== item
-    )
-    this.setState({
-      inventories: newState
+    const url = `http://localhost:3001/api/inventory/${id}`;
+    const options = {
+      method: 'DELETE',
+      headers: {
+        "content-type" : "application/json"
+      },
+      body: JSON.stringify({id})
+    }
+
+    handleFetch(url, options).then(() => {
+      let newState = this.state.inventories.filter(item => {
+        return item._id !==id
+      })
+      this.setState({
+        inventories: [...newState]
+      })
     })
   }
 
@@ -63,7 +74,7 @@ class App extends Component {
   })
     
   
-    //TODO : move to it's own component
+    //TODO : move to it's own component and make pretty
     var freezerInventory = this.state.inventories.filter((item) => {
       console.log(item.location === "Freezer")
       return (item.location === 'Freezer');
@@ -130,6 +141,12 @@ class App extends Component {
 }
 
 export default App;
+
+async function handleFetch(url, options){
+  const stream = await fetch(url, options)
+  const json = await stream.json()
+  return await json
+}
 
 async function getAll() {
   const url = "http://localhost:3001/api/inventory"
