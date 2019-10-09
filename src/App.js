@@ -12,11 +12,12 @@ import InventoryForm from './components/InventoryForm/InventoryForm';
 import ComingSoon from './components/ComingSoon/ComingSoon';
 import Inventory from './components/Inventory/Inventory';
 import Freezer from './components/Freezer/Freezer';
+import InventoryEditForm from './components/InventoryEditForm/InventoryEditForm';
 
 class App extends Component {
   state = {
     user: userService.getUser(),
-    inventories: []
+    inventories: [],
   }
 
   componentDidMount = () => {
@@ -37,22 +38,50 @@ class App extends Component {
     this.setState({user: userService.getUser()});
   }
 
-  handleDelete = (id) => {
-    const url = `http://localhost:3001/api/inventory/${id}`;
+  // handleChange = (e) => {
+  //   this.setState({
+  //     // Using ES2015 Computed Property Names
+  //     [e.target.name]: e.target.value
+  //   });
+  // }
+
+  handleDelete = (id, _id) => {
+    const url = `/api/inventory/${id}`;
     const options = {
       method: 'DELETE',
       headers: {
         "content-type" : "application/json"
       },
-      body: JSON.stringify({id})
+      body: JSON.stringify({id: _id})
     }
 
     handleFetch(url, options).then(() => {
       let newState = this.state.inventories.filter(item => {
-        return item._id !==id
+        return item._id != _id
       })
       this.setState({
         inventories: [...newState]
+      })
+    })
+  }
+
+  handleUpdate = (id, body) => {
+    console.log(id, body)
+    const url = `http://localhost:3001/api/inventory/edit/${id}`
+    const options = {
+      method: 'PUT',
+      headers: {
+        "content-type" : "application/json"
+      },
+      body: JSON.stringify(body)
+    }
+
+    handleFetch(url, options).then(() => {
+      getAll().then(results => {
+        this.setState({
+          inventories: [...results],
+          isEditing: false
+        })
       })
     })
   }
@@ -61,6 +90,8 @@ class App extends Component {
     const currentInventory = this.state.inventories.map((item, idx) => {
       return (
           <Inventory 
+              edit={this.state.edit}
+              isEditing={this.state.isEditing}
               key={idx}
               name={item.name}
               staple={item.staple}
@@ -68,13 +99,17 @@ class App extends Component {
               location={item.location}
               inventories={item.inventories}
               handleDelete={this.handleDelete}
+              handleUpdate={this.handleUpdate}
+              // handleChange={this.handleChange}
               id={idx}
+              _id={item._id}
           />
       );
   })
     
   
     //TODO : move to it's own component and make pretty
+    //repeat for fridge and pantry
     var freezerInventory = this.state.inventories.filter((item) => {
       console.log(item.location === "Freezer")
       return (item.location === 'Freezer');
@@ -124,8 +159,14 @@ class App extends Component {
             <InventoryForm 
               history={history}
               inventory={this.state.inventories}
+              handleChange={this.handleChange}
             />
         } />
+          <Route path='/edit_item' render={() =>
+            <InventoryEditForm 
+              inventory={this.state.inventories}
+            />
+        }/>
         </Switch>
         <div>
           <ul>
@@ -149,7 +190,7 @@ async function handleFetch(url, options){
 }
 
 async function getAll() {
-  const url = "http://localhost:3001/api/inventory"
+  const url = "/api/inventory"
   const initialFetch = await fetch(url)
   const fetchJSON = await initialFetch.json();
   return await fetchJSON;

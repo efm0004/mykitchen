@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class InventoryPage extends Component {
+class InventoryForm extends Component {
     state = {
         name: '',
         staple: false,
@@ -44,11 +44,6 @@ class InventoryPage extends Component {
     render() {
         return (
             <div>
-            {/* <h1>What's in the Freezer?</h1> */}
-            {/* <ul>
-                {currentInventory}
-            </ul> */}
-            {/* <KitchenPage /> */}
             <form onSubmit={this.handleSubmit}>
                 <input onChange={this.handleChange} type="name" placeholder="Item Name" value={this.state.name} name="name" />
                 <label>
@@ -67,7 +62,7 @@ class InventoryPage extends Component {
     }
 }
 
-export default InventoryPage;
+export default InventoryForm;
 
 //these function assist in calling and posting data from the express API
 

@@ -4,6 +4,7 @@ const inventoriesCrl = require('../../controllers/inventories');
 
 router.get('/', inventoriesCrl.getAll);
 router.post('/', inventoriesCrl.create);
+router.put('/edit/:id', inventoriesCrl.edit);
 router.delete('/:id', inventoriesCrl.delete);
 
 
