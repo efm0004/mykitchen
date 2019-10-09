@@ -8,8 +8,6 @@ class Inventory extends Component {
     }
 
     handleShowEdit = (id) => {
-        console.log(this.state.isEditing)
-        console.log(id)
         this.setState({
             isEditing: !this.state.isEditing,
             edit: id
@@ -28,13 +26,14 @@ class Inventory extends Component {
                     Donde?  {this.props.location}
                 </p> 
                 <button 
-                value={this.props.id} 
-                onClick={() => this.handleShowEdit(this.props.id)}
-                >Edit</button>
+                    value={this.props.id} 
+                    onClick={() => this.handleShowEdit(this.props.id)}>
+                    {this.state.isEditing === false ? "Edit" : "Cancel"}
+                </button>
                 {this.state.isEditing === true ? 
                     <InventoryEditForm 
                         {...this.props}
-                        {...this.state}
+                        // {...this.state}
                     />
                 : null}
             </li>

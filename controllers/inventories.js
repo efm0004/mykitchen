@@ -17,7 +17,8 @@ async function edit(req, res){
 async function create(req, res) {
     console.log(req.body);
     try {
-        await Inventory.create(req.body);
+        const newInventory = await Inventory.create(req.body);
+        res.status(201).json(newInventory);
     } catch (err) {
         res.json({err});
     }

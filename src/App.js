@@ -11,7 +11,6 @@ import KitchenPage from '../src/pages/KitchenPage/KitchenPage';
 import InventoryForm from './components/InventoryForm/InventoryForm';
 import ComingSoon from './components/ComingSoon/ComingSoon';
 import Inventory from './components/Inventory/Inventory';
-import Freezer from './components/Freezer/Freezer';
 import InventoryEditForm from './components/InventoryEditForm/InventoryEditForm';
 
 class App extends Component {
@@ -22,7 +21,6 @@ class App extends Component {
 
   componentDidMount = () => {
     getAll().then(results => {
-        console.log('hello there foodstuffs ', results)
         this.setState({
             inventories: results
         })
@@ -38,12 +36,21 @@ class App extends Component {
     this.setState({user: userService.getUser()});
   }
 
-  // handleChange = (e) => {
-  //   this.setState({
-  //     // Using ES2015 Computed Property Names
-  //     [e.target.name]: e.target.value
-  //   });
-  // }
+  handleAddInventory = ({ name, staple, quantity, location }) => {
+    const url = "http://localhost:3001/api/inventory";
+    const options = {
+        method: 'POST',
+        headers: {
+            "content-type" : "application/json"
+        },
+        body: JSON.stringify({name, staple, quantity, location})
+    }
+      handleFetch(url, options).then(results => {
+        this.setState({
+            inventories: [...this.state.inventories, results]
+        })
+    })
+  }
 
   handleDelete = (id, _id) => {
     const url = `/api/inventory/${id}`;
@@ -159,7 +166,7 @@ class App extends Component {
             <InventoryForm 
               history={history}
               inventory={this.state.inventories}
-              handleChange={this.handleChange}
+              handleAddInventory={this.handleAddInventory}
             />
         } />
           <Route path='/edit_item' render={() =>
@@ -195,3 +202,9 @@ async function getAll() {
   const fetchJSON = await initialFetch.json();
   return await fetchJSON;
 }
+
+// async function handleAdd(url, options){
+//   const initialFetch = await fetch(url, options)
+//   const fetchJSON = await initialFetch.json();
+//   return await fetchJSON;
+// }

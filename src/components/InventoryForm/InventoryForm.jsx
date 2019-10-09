@@ -6,7 +6,6 @@ class InventoryForm extends Component {
         staple: false,
         quantity: 'Med',
         location: 'Freezer',
-        inventories: []
     }
 
     handleChange = (e) => {
@@ -16,29 +15,17 @@ class InventoryForm extends Component {
         });
     }
 
+    //keep handleSubmit for preventDefault
     handleSubmit = (e) => {
         e.preventDefault();
-        //where I need to have a fetch to hit Express route 
-        //to create new item
-        const url = "http://localhost:3001/api/inventory";
-        const options = {
-            method: 'POST',
-            headers: {
-                "content-type" : "application/json"
-            },
-            body: JSON.stringify({
-                name: this.state.name, 
-                staple: this.state.staple, 
-                quantity: this.state.quantity, 
-                location: this.state.location 
-            })
-        }
-        handleAdd(url, options).then(results => {
-            this.setState({
-                inventories: [...this.state.inventories, results]
-            })
+        this.props.handleAddInventory({...this.state})
+        this.setState({ 
+            name: '',
+            staple: false,
+            quantity: 'Med',
+            location: 'Freezer'
         })
-
+        console.log({...this.state})
     }
 
     render() {
@@ -64,10 +51,3 @@ class InventoryForm extends Component {
 
 export default InventoryForm;
 
-//these function assist in calling and posting data from the express API
-
-async function handleAdd(url, options){
-    const initialFetch = await fetch(url, options)
-    const fetchJSON = await initialFetch.json();
-    return await fetchJSON;
-}
