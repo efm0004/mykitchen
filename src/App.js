@@ -188,8 +188,6 @@ class App extends Component {
               handleDelete={this.handleDelete}
               handleUpdate={this.handleUpdate}
               handleAddInventory={this.handleAddInventory}
-              handleDelete={this.handleDelete}
-              handleUpdate={this.handleUpdate}
               user={this.state.user}
               />
         } />
@@ -201,8 +199,6 @@ class App extends Component {
               handleDelete={this.handleDelete}
               handleUpdate={this.handleUpdate}
               handleAddInventory={this.handleAddInventory}
-              handleDelete={this.handleDelete}
-              handleUpdate={this.handleUpdate}
               user={this.state.user}
             />
         } />
@@ -215,8 +211,6 @@ class App extends Component {
               handleDelete={this.handleDelete}
               handleUpdate={this.handleUpdate}
               handleAddInventory={this.handleAddInventory}
-              handleDelete={this.handleDelete}
-              handleUpdate={this.handleUpdate}
               user={this.state.user}
             />
         } />
