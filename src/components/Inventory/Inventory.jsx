@@ -13,6 +13,12 @@ class Inventory extends Component {
             edit: id
         })
     }
+
+    removeEditForm = () => {
+        this.setState({
+            isEditing: false
+        })
+    }
     
     render() {
         return (
@@ -33,6 +39,7 @@ class Inventory extends Component {
                 {this.state.isEditing === true ? 
                     <InventoryEditForm 
                         {...this.props}
+                        removeEditForm={this.removeEditForm}
                         // {...this.state}
                     />
                 : null}

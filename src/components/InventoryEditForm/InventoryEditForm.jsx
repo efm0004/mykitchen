@@ -25,6 +25,7 @@ class InventoryEditForm extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
+        this.props.removeEditForm();
         this.props.handleUpdate(this.props._id, this.state)
     }
 
