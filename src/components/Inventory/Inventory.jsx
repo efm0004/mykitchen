@@ -40,14 +40,10 @@ class Inventory extends Component {
                     <InventoryEditForm 
                         {...this.props}
                         removeEditForm={this.removeEditForm}
-                        // {...this.state}
                     />
                 : null}
             </li>
             </div>
-            // <Edit 
-            //  {...this.props}
-            // />
         )
     }
 }

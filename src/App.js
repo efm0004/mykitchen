@@ -61,13 +61,14 @@ class App extends Component {
   }
 
   handleDelete = (id, _id) => {
+    console.log(this.state.user, id, _id)
     const url = `/api/inventory/${id}`;
     const options = {
       method: 'DELETE',
       headers: {
         "content-type" : "application/json"
       },
-      body: JSON.stringify({id: _id})
+      body: JSON.stringify({user: this.state.user, id: _id})
     }
 
     handleFetch(url, options).then(() => {
@@ -216,12 +217,12 @@ async function handleFetch(url, options){
   return await json
 }
 
-async function getAll() {
-  const url = "/api/inventory"
-  const initialFetch = await fetch(url)
-  const fetchJSON = await initialFetch.json();
-  return await fetchJSON;
-}
+// async function getAll() {
+//   const url = "/api/inventory"
+//   const initialFetch = await fetch(url)
+//   const fetchJSON = await initialFetch.json();
+//   return await fetchJSON;
+// }
 
 // async function handleAdd(url, options){
 //   const initialFetch = await fetch(url, options)
