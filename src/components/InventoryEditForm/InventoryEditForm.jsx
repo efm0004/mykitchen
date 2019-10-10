@@ -51,7 +51,7 @@ class InventoryEditForm extends Component {
                         <option value="High">High</option>
                     </select>
                 </label>  
-                <button >Update Item</button>
+                <button>Update Item</button>
                 </form>
             </div>
         )

@@ -11,7 +11,7 @@ import KitchenPage from '../src/pages/KitchenPage/KitchenPage';
 import InventoryForm from './components/InventoryForm/InventoryForm';
 import ComingSoon from './components/ComingSoon/ComingSoon';
 import Inventory from './components/Inventory/Inventory';
-import InventoryEditForm from './components/InventoryEditForm/InventoryEditForm';
+import { thisTypeAnnotation } from '@babel/types';
 
 class App extends Component {
   state = {
@@ -20,7 +20,15 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    getAll().then(results => {
+    const url = "/api/inventory/all"
+    const options = {
+        method: 'POST',
+        headers: {
+            "content-type" : "application/json"
+        },
+        body: JSON.stringify({user: this.state.user})
+    }
+    handleFetch(url, options).then(results => {
         this.setState({
             inventories: results
         })
@@ -37,13 +45,13 @@ class App extends Component {
   }
 
   handleAddInventory = ({ name, staple, quantity, location }) => {
-    const url = "http://localhost:3001/api/inventory";
+    const url = "/api/inventory/add";
     const options = {
         method: 'POST',
         headers: {
             "content-type" : "application/json"
         },
-        body: JSON.stringify({name, staple, quantity, location})
+        body: JSON.stringify({name, staple, quantity, location, user: this.state.user})
     }
       handleFetch(url, options).then(results => {
         this.setState({
@@ -73,28 +81,37 @@ class App extends Component {
   }
 
   handleUpdate = (id, body) => {
-    console.log(id, body)
-    const url = `http://localhost:3001/api/inventory/edit/${id}`
+    // console.log(this.state.user, id, body)
+    const url = `/api/inventory/edit/${id}`
     const options = {
       method: 'PUT',
       headers: {
         "content-type" : "application/json"
       },
-      body: JSON.stringify(body)
+      body: JSON.stringify({user: this.state.user, id, body})
+    }
+    const urlTwo = "/api/inventory/all"
+    const optionsTwo = {
+        method: 'POST',
+        headers: {
+            "content-type" : "application/json"
+        },
+        body: JSON.stringify({user: this.state.user})
     }
 
     handleFetch(url, options).then(() => {
-      getAll().then(results => {
+      handleFetch(urlTwo, optionsTwo).then(results => {
         this.setState({
-          inventories: [...results],
-          isEditing: false
+          inventories: [...results]
+          // isEditing: false
         })
       })
     })
   }
 
   render() {
-    const currentInventory = this.state.inventories.map((item, idx) => {
+    const currentInventory = this.state.user ? 
+    this.state.inventories.map((item, idx) => {
       return (
           <Inventory 
               edit={this.state.edit}
@@ -107,31 +124,38 @@ class App extends Component {
               inventories={item.inventories}
               handleDelete={this.handleDelete}
               handleUpdate={this.handleUpdate}
-              // handleChange={this.handleChange}
               id={idx}
               _id={item._id}
+              user={this.state.user}
           />
-      );
-  })
-    
-  
-    //TODO : move to it's own component and make pretty
-    //repeat for fridge and pantry
-    var freezerInventory = this.state.inventories.filter((item) => {
-      console.log(item.location === "Freezer")
-      return (item.location === 'Freezer');
-
-    })
-
-    var freezerList = freezerInventory.map((item, idx) => {
-      return(
-
-        <div key={idx}>
-          <p>{item.name}</p>
-        </div>
-        
       )
     })
+    :
+      'Please log in to view inventory'
+    
+    // const userMatchInventory = this.state.inventories.filter((item) => {
+    //   console.log(item.user === item.user)
+    //   return (item.user === item.user)
+    // })
+
+    // const userInventory = userInventory.map(())
+    //TODO : move to it's own component and make pretty
+    //repeat for fridge and pantry
+    // var freezerInventory = this.state.inventories.filter((item) => {
+    //   console.log(item.location === "Freezer")
+    //   return (item.location === 'Freezer');
+
+    // })
+
+    // var freezerList = freezerInventory.map((item, idx) => {
+    //   return(
+
+    //     <div key={idx}>
+    //       <p>{item.name}</p>
+    //     </div>
+        
+    //   )
+    // })
 
     //end TO DO
 
@@ -158,29 +182,25 @@ class App extends Component {
             />
           } />
           <Route path='/comingsoon' render={() =>
-            <ComingSoon />
-          }
-          />
-          />
+            userService.getUser() ?
+              <ComingSoon /> :
+              <Redirect to='/login'/>
+          }/>
           <Route path='/freezer' render={({history}) =>
             <InventoryForm 
               history={history}
               inventory={this.state.inventories}
               handleAddInventory={this.handleAddInventory}
+              user={this.state.user}
             />
         } />
-          <Route path='/edit_item' render={() =>
-            <InventoryEditForm 
-              inventory={this.state.inventories}
-            />
-        }/>
         </Switch>
         <div>
           <ul>
             {currentInventory}
           </ul>
           <ul>
-            {freezerList}
+            {/* {freezerList} */}
           </ul>
         </div>
       </div>

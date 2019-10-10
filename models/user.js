@@ -3,6 +3,36 @@ const bcrypt = require('bcrypt');
 
 const SALT_ROUNDS = 6;
 
+const grocerySchema = new mongoose.Schema({
+  name: String,
+  staple: Boolean,
+  quantity: {
+      type: String,
+      enum: ["Low", "Med", "High"]
+  },
+  location: {
+      type: String,
+      enum: ["Freezer", "Fridge", "Pantry"]
+  }
+}, {
+  timestamps: true
+});
+
+const inventorySchema = new mongoose.Schema({
+  name: String,
+  staple: Boolean,
+  quantity: {
+      type: String,
+      enum: ["Low", "Med", "High"]
+  },
+  location: {
+      type: String,
+      enum: ["Freezer", "Fridge", "Pantry"]
+  }
+}, {
+  timestamps: true
+});
+
 const userSchema = new mongoose.Schema({
     name: String,
     email: {
@@ -11,6 +41,8 @@ const userSchema = new mongoose.Schema({
         unique: true
     },
     password: String,
+    inventory: [inventorySchema],
+    grocery: [grocerySchema]
 }, {
     timestamps: true
 });

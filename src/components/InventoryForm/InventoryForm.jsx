@@ -6,16 +6,15 @@ class InventoryForm extends Component {
         staple: false,
         quantity: 'Med',
         location: 'Freezer',
+        // user: this.props.user
     }
 
     handleChange = (e) => {
         this.setState({
-          // Using ES2015 Computed Property Names
           [e.target.name]: e.target.value
         });
     }
 
-    //keep handleSubmit for preventDefault
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.handleAddInventory({...this.state})
@@ -25,7 +24,6 @@ class InventoryForm extends Component {
             quantity: 'Med',
             location: 'Freezer'
         })
-        console.log({...this.state})
     }
 
     render() {
@@ -41,8 +39,6 @@ class InventoryForm extends Component {
                     </select>
                 </label>
                 <button>Add Item</button>
-                {/* <input type="staple" placeholder="False" name="staple" />
-                <input type="quantity" placeholder="Med" name="quantity"/> */}
             </form>
             </div>
         )
