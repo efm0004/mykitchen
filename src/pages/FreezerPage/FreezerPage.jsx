@@ -12,14 +12,14 @@ class FreezerPage extends Component {
                 <FreezerList 
                 // edit={this.state.edit}
                 // isEditing={this.state.isEditing}
-                key={idx}
+                key={idx}   
                 name={item.name}
                 staple={item.staple}
                 quantity={item.quantity}
                 location={item.location}
                 inventories={item.inventories}
-                handleDelete={this.handleDelete}
-                handleUpdate={this.handleUpdate}
+                handleDelete={this.props.handleDelete}
+                handleUpdate={this.props.handleUpdate}
                 id={idx}
                 _id={item._id}
                 // user={this.state.user}

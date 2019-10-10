@@ -23,6 +23,7 @@ class FreezerList extends Component {
     }
 
     render() {
+        console.log(this.props)
         return (
             <div>
                 <p key={this.props.id}>
@@ -42,7 +43,7 @@ class FreezerList extends Component {
                     <InventoryEditForm 
                         {...this.props}
                         removeEditForm={this.removeEditForm}
-                        handleUpdate={this.handleUpdate}
+                        handleUpdate={this.props.handleUpdate}
                     />
                 : null}
             </p>

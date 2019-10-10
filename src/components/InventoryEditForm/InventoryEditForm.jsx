@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 
 class InventoryEditForm extends Component {
-    //insert state & componentDidMount
     state = {
         location: '',
         staple: '',
@@ -18,7 +17,6 @@ class InventoryEditForm extends Component {
 
     handleChange = (e) => {
         this.setState({
-          // Using ES2015 Computed Property Names
           [e.target.name]: e.target.value
         });
     }
@@ -34,7 +32,6 @@ class InventoryEditForm extends Component {
             <div>
                 I am an Edit Form!
                 <form onSubmit={this.handleSubmit}>
-                {/* <input onChange={this.handleChange} type="name" placeholder="Item Name" value={this.state.name} name="name" /> */}
                 <label>Location:
                     <select onChange={this.handleChange} name="location" value={this.state.location}>
                         <option value="Freezer">Freezer</option>
