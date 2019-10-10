@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import {Route, Link, NavLink, Switch, Redirect } from 'react-router-dom';
-// import logo from './logo.svg';
 import './App.css';
-// import {read} from 'fs';
 import LoginPage from '../src/pages/LoginPage/LoginPage';
 import SignupPage from './pages/SignupPage/SignupPage';
 import NavBar from '../src/components/NavBar/NavBar';
@@ -11,12 +9,15 @@ import KitchenPage from '../src/pages/KitchenPage/KitchenPage';
 import InventoryForm from './components/InventoryForm/InventoryForm';
 import ComingSoon from './components/ComingSoon/ComingSoon';
 import Inventory from './components/Inventory/Inventory';
-import { thisTypeAnnotation } from '@babel/types';
+import FreezerPage from './pages/FreezerPage/FreezerPage';
+import FridgePage from './pages/FridgePage/FridgePage';
+import PantryPage from './pages/PantryPage/PantryPage';
 
 class App extends Component {
   state = {
     user: userService.getUser(),
     inventories: [],
+    // isFreezerShowing: false,
   }
 
   componentDidMount = () => {
@@ -82,7 +83,6 @@ class App extends Component {
   }
 
   handleUpdate = (id, body) => {
-    // console.log(this.state.user, id, body)
     const url = `/api/inventory/edit/${id}`
     const options = {
       method: 'PUT',
@@ -104,7 +104,6 @@ class App extends Component {
       handleFetch(urlTwo, optionsTwo).then(results => {
         this.setState({
           inventories: [...results]
-          // isEditing: false
         })
       })
     })
@@ -132,18 +131,12 @@ class App extends Component {
       )
     })
     :
-      'Please log in to view inventory'
+      null
     
-    // const userMatchInventory = this.state.inventories.filter((item) => {
-    //   console.log(item.user === item.user)
-    //   return (item.user === item.user)
-    // })
-
-    // const userInventory = userInventory.map(())
     //TODO : move to it's own component and make pretty
     //repeat for fridge and pantry
     // var freezerInventory = this.state.inventories.filter((item) => {
-    //   console.log(item.location === "Freezer")
+    //   // console.log(item.location === "Freezer")
     //   return (item.location === 'Freezer');
 
     // })
@@ -187,18 +180,50 @@ class App extends Component {
               <ComingSoon /> :
               <Redirect to='/login'/>
           }/>
-          <Route path='/freezer' render={({history}) =>
-            <InventoryForm 
-              history={history}
-              inventory={this.state.inventories}
+          <Route path='/freezer' render={({}) =>
+              <FreezerPage 
+              edit={this.state.edit}
+              isEditing={this.state.isEditing}
+              inventories={this.state.inventories}
+              handleDelete={this.handleDelete}
+              handleUpdate={this.handleUpdate}
               handleAddInventory={this.handleAddInventory}
+              handleDelete={this.handleDelete}
+              handleUpdate={this.handleUpdate}
+              user={this.state.user}
+              />
+        } />
+          <Route path='/fridge' render={() => 
+            <FridgePage 
+            edit={this.state.edit}
+              isEditing={this.state.isEditing}
+              inventories={this.state.inventories}
+              handleDelete={this.handleDelete}
+              handleUpdate={this.handleUpdate}
+              handleAddInventory={this.handleAddInventory}
+              handleDelete={this.handleDelete}
+              handleUpdate={this.handleUpdate}
+              user={this.state.user}
+            />
+        } />
+
+          <Route path='/pantry' render={() =>
+            <PantryPage 
+            edit={this.state.edit}
+              isEditing={this.state.isEditing}
+              inventories={this.state.inventories}
+              handleDelete={this.handleDelete}
+              handleUpdate={this.handleUpdate}
+              handleAddInventory={this.handleAddInventory}
+              handleDelete={this.handleDelete}
+              handleUpdate={this.handleUpdate}
               user={this.state.user}
             />
         } />
         </Switch>
         <div>
           <ul>
-            {currentInventory}
+            {/* {currentInventory} */}
           </ul>
           <ul>
             {/* {freezerList} */}

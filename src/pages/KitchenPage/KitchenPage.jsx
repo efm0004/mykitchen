@@ -8,7 +8,6 @@ import Dishwasher from '../../components/Dishwasher/Dishwasher';
 import CounterTop from '../../components/CounterTop/CounterTop';
 import Recipes from '../../components/Recipes/Recipes';
 import MenuBoard from '../../components/MenuBoard/MenuBoard';
-import InventoryEditForm from '../../components/InventoryEditForm/InventoryEditForm';
 
 class KitchenPage extends Component {
     handleClick = (e) => {

@@ -5,7 +5,7 @@ class Pantry extends Component {
     render() {
         return (
             <div>
-                <a href="/"><img src={MKPantry} className="Pantry"/></a>
+                <a href="/pantry"><img src={MKPantry} className="Pantry"/></a>
             </div>
 
         )

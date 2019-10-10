@@ -6,7 +6,7 @@ class Fridge extends Component {
     render() {
         return (
             <div>
-                <a href="/"><img src={MKFridge} className={styles.Fridge}/></a>
+                <a href="/fridge"><img src={MKFridge} className={styles.Fridge}/></a>
             </div>
         )
     }
