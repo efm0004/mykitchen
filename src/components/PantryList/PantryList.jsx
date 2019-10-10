@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import InventoryEditForm from '../InventoryEditForm/InventoryEditForm';
 
-class FridgeList extends Component {
+class PantryList extends Component {
     state = {
         isEditing: false,
         edit: ''
@@ -51,4 +51,4 @@ class FridgeList extends Component {
     }
 }
 
-export default FridgeList;
+export default PantryList;
