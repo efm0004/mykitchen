@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Route, Link, NavLink, Switch, Redirect } from 'react-router-dom';
+import {Route, Switch, Redirect } from 'react-router-dom';
 import './App.css';
 import LoginPage from '../src/pages/LoginPage/LoginPage';
 import SignupPage from './pages/SignupPage/SignupPage';
