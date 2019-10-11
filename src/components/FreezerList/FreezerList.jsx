@@ -26,26 +26,24 @@ class FreezerList extends Component {
         return (
             <tr key={this.props.id}>
                 <td>
-                <button className="btn btn-default" onClick={() => this.props.handleDelete(this.props.id, this.props._id)}>Delete</button>
+                    <button className="btn btn-default" onClick={() => this.props.handleDelete(this.props.id, this.props._id)}>Delete</button>
                 </td>
                 <td>{this.props.name}</td> 
-                &nbsp;&nbsp;
+                    &nbsp;&nbsp;
                 <td> {this.props.staple}</td> 
-                &nbsp;&nbsp;
+                    &nbsp;&nbsp;
                 <td>{this.props.quantity}</td>
-                &nbsp;&nbsp;
+                    &nbsp;&nbsp;
+                <td>{this.props.location}</td> 
+                    &nbsp;&nbsp;
                 <td>
-                {this.props.location}
-                </td> 
-                &nbsp;&nbsp;
-                <td>
-                &nbsp;&nbsp;
-                <button 
-                    className="btn btn-default"
-                    value={this.props.id} 
-                    onClick={() => this.handleShowEdit(this.props.id)}>
-                    {this.state.isEditing === false ? "Edit" : "Cancel"}
-                </button>
+                    &nbsp;&nbsp;
+                    <button 
+                        className="btn btn-default"
+                        value={this.props.id} 
+                        onClick={() => this.handleShowEdit(this.props.id)}>
+                        {this.state.isEditing === false ? "Edit" : "Cancel"}
+                    </button>
                 </td>
                 
                 {this.state.isEditing === true ? 
