@@ -23,23 +23,31 @@ class FreezerList extends Component {
     }
 
     render() {
-        console.log(this.props)
         return (
-            <div>
-                <div key={this.props.id}>
+            <tr key={this.props.id}>
+                <td>
                 <button className="btn btn-default" onClick={() => this.props.handleDelete(this.props.id, this.props._id)}>Delete</button>
-                <p>Item Name:  {this.props.name}</p> 
-                <p>Staple?  {this.props.staple}</p> 
-                <p>Qty: {this.props.quantity}</p>
-                <p>
-                    Donde?  {this.props.location}
-                </p> 
+                </td>
+                <td>{this.props.name}</td> 
+                &nbsp;&nbsp;
+                <td> {this.props.staple}</td> 
+                &nbsp;&nbsp;
+                <td>{this.props.quantity}</td>
+                &nbsp;&nbsp;
+                <td>
+                {this.props.location}
+                </td> 
+                &nbsp;&nbsp;
+                <td>
+                &nbsp;&nbsp;
                 <button 
                     className="btn btn-default"
                     value={this.props.id} 
                     onClick={() => this.handleShowEdit(this.props.id)}>
                     {this.state.isEditing === false ? "Edit" : "Cancel"}
                 </button>
+                </td>
+                
                 {this.state.isEditing === true ? 
                     <InventoryEditForm 
                         {...this.props}
@@ -47,8 +55,8 @@ class FreezerList extends Component {
                         handleUpdate={this.props.handleUpdate}
                     />
                 : null}
-            </div>
-            </div>
+                </tr>
+            
         )
     }
 }

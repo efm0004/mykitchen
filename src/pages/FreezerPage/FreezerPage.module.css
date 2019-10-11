@@ -1,3 +1,8 @@
 .Font {
     color: #C05746;
 }
+
+.Center {
+    display: grid;
+    text-align: center;
+}
