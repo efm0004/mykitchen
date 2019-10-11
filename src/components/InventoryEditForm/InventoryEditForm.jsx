@@ -30,26 +30,40 @@ class InventoryEditForm extends Component {
     render() {
         return (
             <div>
-                I am an Edit Form!
-                <form onSubmit={this.handleSubmit}>
-                <label>Location:
-                    <select onChange={this.handleChange} name="location" value={this.state.location}>
-                        <option value="Freezer">Freezer</option>
-                        <option value="Fridge">Fridge</option>
-                        <option value="Pantry">Pantry</option>
-                    </select>
-                </label>
-                <label onChange={this.handleChange}>Staple?
-                    <input type="checkbox" name="staple" />
-                </label>  
-                <label>Quantity:
-                    <select onChange={this.handleChange} name="quantity" value={this.state.quantity}>
-                        <option value="Low">Low</option>
-                        <option value="Med">Medium</option>
-                        <option value="High">High</option>
-                    </select>
-                </label>  
-                <button>Update Item</button>
+                <form className="form-horizontal" onSubmit={this.handleSubmit}>
+                <div className="form-group">
+                    <div className="col-sm-12">
+                        <label>Location:
+                            <select onChange={this.handleChange} name="location" value={this.state.location}>
+                                <option value="Freezer">Freezer</option>
+                                <option value="Fridge">Fridge</option>
+                                <option value="Pantry">Pantry</option>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+                <div className="form-group">
+                    <div className="col-sm-12">
+                        <label onChange={this.handleChange}>Staple?
+                            <select onChange={this.handleChange} name="staple" value={this.state.staple}>
+                                <option value="No">No</option>
+                                <option value="Yes">Yes</option>
+                            </select>
+                        </label> 
+                    </div> 
+                </div>
+                <div className="form-group"> 
+                    <div className="col-sm-12">
+                        <label>Quantity:
+                            <select onChange={this.handleChange} name="quantity" value={this.state.quantity}>
+                                <option value="Low">Low</option>
+                                <option value="Med">Medium</option>
+                                <option value="High">High</option>
+                            </select>
+                        </label>  
+                    </div>
+                </div>
+                <button className="btn btn-default">Update Item</button>
                 </form>
             </div>
         )

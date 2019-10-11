@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PantryList from '../../components/PantryList/PantryList';
 import InventoryForm from '../../components/InventoryForm/InventoryForm';
+import styles from './PantryPage.module.css';
 
 class PantryPage extends Component {
     render() {
@@ -28,7 +29,7 @@ class PantryPage extends Component {
         })
         return (
             <div>
-                <h3>What's in the Pantry?</h3>
+                <h3 className={styles.Font}>What's in the Pantry?</h3>
                 {pantryList}
                 <InventoryForm 
                 {...this.props}

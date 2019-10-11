@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import FridgeList from '../../components/FridgeList/FridgeList';
 import InventoryForm from '../../components/InventoryForm/InventoryForm';
+import styles from './FridgePage.module.css';
 
 class FridgePage extends Component {
     render() {
@@ -28,7 +29,7 @@ class FridgePage extends Component {
         })
         return (
             <div>
-                <h3>What's in the Fridge?</h3>
+                <h3 className={styles.Font}>What's in the Fridge?</h3>
                 {fridgeList}
                 <InventoryForm 
                 {...this.props}

@@ -1,8 +1,12 @@
 import React, {Component} from 'react';
 import FreezerList from '../../components/FreezerList/FreezerList';
 import InventoryForm from '../../components/InventoryForm/InventoryForm';
+import styles from './FreezerPage.module.css';
 
 class FreezerPage extends Component {
+    state = {
+        location: 'Freezer'
+    }
     render() {
         var freezerInventory = this.props.inventories.filter((item) => {
             return(item.location === 'Freezer');
@@ -28,7 +32,7 @@ class FreezerPage extends Component {
         })
         return (
             <div>
-                <h3>What's in the Freezer?</h3>
+                <h3 className={styles.Font}>What's in the Freezer?</h3>
                 {freezerList}
                 <InventoryForm 
                 {...this.props}

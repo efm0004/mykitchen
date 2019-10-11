@@ -110,48 +110,31 @@ class App extends Component {
   }
 
   render() {
-    const currentInventory = this.state.user ? 
-    this.state.inventories.map((item, idx) => {
-      return (
-          <Inventory 
-              edit={this.state.edit}
-              isEditing={this.state.isEditing}
-              key={idx}
-              name={item.name}
-              staple={item.staple}
-              quantity={item.quantity}
-              location={item.location}
-              inventories={item.inventories}
-              handleDelete={this.handleDelete}
-              handleUpdate={this.handleUpdate}
-              id={idx}
-              _id={item._id}
-              user={this.state.user}
-          />
-      )
-    })
-    :
-      null
-    
-    //TODO : move to it's own component and make pretty
-    //repeat for fridge and pantry
-    // var freezerInventory = this.state.inventories.filter((item) => {
-    //   // console.log(item.location === "Freezer")
-    //   return (item.location === 'Freezer');
 
-    // })
-
-    // var freezerList = freezerInventory.map((item, idx) => {
-    //   return(
-
-    //     <div key={idx}>
-    //       <p>{item.name}</p>
-    //     </div>
-        
+    //To Do: use as an example for ShoppingBag/GroceryList
+    // const currentInventory = this.state.user ? 
+    // this.state.inventories.map((item, idx) => {
+    //   return (
+    //       <Inventory 
+    //           edit={this.state.edit}
+    //           isEditing={this.state.isEditing}
+    //           key={idx}
+    //           name={item.name}
+    //           staple={item.staple}
+    //           quantity={item.quantity}
+    //           location={item.location}
+    //           inventories={item.inventories}
+    //           handleDelete={this.handleDelete}
+    //           handleUpdate={this.handleUpdate}
+    //           id={idx}
+    //           _id={item._id}
+    //           user={this.state.user}
+    //       />
     //   )
     // })
-
-    //end TO DO
+    // :
+    //   null
+    
 
     return (
       <div className="App">

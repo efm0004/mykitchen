@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
 class InventoryForm extends Component {
+    //To Do: insert page state to be able to automatically assign location based on the page
     state = {
         name: '',
-        staple: false,
+        staple: 'No',
         quantity: 'Med',
         location: 'Freezer',
-        // user: this.props.user
     }
 
     handleChange = (e) => {
@@ -20,7 +20,7 @@ class InventoryForm extends Component {
         this.props.handleAddInventory({...this.state})
         this.setState({ 
             name: '',
-            staple: false,
+            staple: 'No',
             quantity: 'Med',
             location: 'Freezer'
         })
@@ -28,17 +28,28 @@ class InventoryForm extends Component {
 
     render() {
         return (
+            
             <div>
-            <form onSubmit={this.handleSubmit}>
-                <input onChange={this.handleChange} type="name" placeholder="Item Name" value={this.state.name} name="name" />
-                <label>
-                    <select onChange={this.handleChange} name="location">
-                        <option value="Freezer">Freezer</option>
-                        <option value="Fridge">Fridge</option>
-                        <option value="Pantry">Pantry</option>
-                    </select>
-                </label>
-                <button>Add Item</button>
+                <hr/>
+                <header className="header-footer">Add an Item</header>
+                <form className="form-horizontal" onSubmit={this.handleSubmit}>
+                    <div className="form-group">
+                        <div className="col-sm-12">
+                            <input onChange={this.handleChange} type="name" placeholder="Item Name" value={this.state.name} name="name" />
+                        </div>
+                    </div>
+                <div className="form-group">
+                    <div className="col-sm-12">
+                        <label>
+                            <select onChange={this.handleChange} name="location">
+                                <option value="Freezer">Freezer</option>
+                                <option value="Fridge">Fridge</option>
+                                <option value="Pantry">Pantry</option>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+                <button className="btn btn-default">Add Item</button>
             </form>
             </div>
         )

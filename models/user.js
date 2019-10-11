@@ -5,7 +5,10 @@ const SALT_ROUNDS = 6;
 
 const grocerySchema = new mongoose.Schema({
   name: String,
-  staple: Boolean,
+  staple: {
+    type: String,
+    enum: ["Yes", "No"]
+  },
   quantity: {
       type: String,
       enum: ["Low", "Med", "High"]
@@ -20,7 +23,7 @@ const grocerySchema = new mongoose.Schema({
 
 const inventorySchema = new mongoose.Schema({
   name: String,
-  staple: Boolean,
+  staple: String,
   quantity: {
       type: String,
       enum: ["Low", "Med", "High"]

@@ -5,7 +5,7 @@ class ShoppingBag extends Component {
     render() {
         return (
             <div>
-                <a href="/"><img src={MKShoppingBag}/></a>
+                <a href="/comingsoon"><img src={MKShoppingBag}/></a>
             </div>
         )
     }
