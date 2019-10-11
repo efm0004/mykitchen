@@ -162,6 +162,7 @@ class App extends Component {
               <Redirect to='/login'/>
           }/>
           <Route path='/freezer' render={({}) =>
+              userService.getUser() ?
               <FreezerPage 
               edit={this.state.edit}
               isEditing={this.state.isEditing}
@@ -170,9 +171,11 @@ class App extends Component {
               handleUpdate={this.handleUpdate}
               handleAddInventory={this.handleAddInventory}
               user={this.state.user}
-              />
+              /> :
+              <Redirect to='/login' />
         } />
           <Route path='/fridge' render={() => 
+            userService.getUser() ?
             <FridgePage 
             edit={this.state.edit}
               isEditing={this.state.isEditing}
@@ -181,10 +184,12 @@ class App extends Component {
               handleUpdate={this.handleUpdate}
               handleAddInventory={this.handleAddInventory}
               user={this.state.user}
-            />
+            /> :
+            <Redirect to='/login' />
         } />
 
           <Route path='/pantry' render={() =>
+            userService.getUser() ?
             <PantryPage 
             edit={this.state.edit}
               isEditing={this.state.isEditing}
@@ -193,17 +198,10 @@ class App extends Component {
               handleUpdate={this.handleUpdate}
               handleAddInventory={this.handleAddInventory}
               user={this.state.user}
-            />
+            /> :
+            <Redirect to='/login' />
         } />
         </Switch>
-        <div>
-          <ul>
-            {/* {currentInventory} */}
-          </ul>
-          <ul>
-            {/* {freezerList} */}
-          </ul>
-        </div>
       </div>
     );
   }
