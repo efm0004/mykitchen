@@ -21,10 +21,12 @@ Future features will also allow you to use MyKitchen to plan your weekly meals, 
 [Deployed App](https://myreactkitchen.herokuapp.com/)
 
 ### **Unsolved Problems**
--Checkbox - I want to use a checkbox for Staples rather than a drop down
+- Checkbox - I want to use a checkbox for Staples rather than a drop down
+- Bugs - Signup page won't go straightt to logged in page and you can only add one item at a time
+- Heroku updated website
 
 ### **Future Enhancements**
-- Shopping List: essentially the same as for the Inventories lis
+- Shopping List: essentially the same as for the Inventories list
 - Dishwasher: Clean or Dirty?
 - Weekly Menu creations - with full CRUD
 - Create and Save Recipes, incorporating categories
