@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import styles from './InventoryEditForm.module.css';
 
 class InventoryEditForm extends Component {
     state = {
@@ -29,7 +30,7 @@ class InventoryEditForm extends Component {
 
     render() {
         return (
-            <div>
+            <div className={styles.InventoryEditForm}>
                 <form className="form-horizontal" onSubmit={this.handleSubmit}>
                 <div className="form-group">
                     <div className="col-sm-12">

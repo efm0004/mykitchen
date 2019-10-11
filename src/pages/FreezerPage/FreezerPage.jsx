@@ -33,18 +33,18 @@ class FreezerPage extends Component {
         return (
             <div>
                 <h3 className={styles.Font}>What's in the Freezer?</h3>
-                <table>
+                <table className={styles.Center}>
                     <thead>
                         <tr>
                         <th></th>
                         <th>Item Name:</th>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;
                         <th>Staple:</th>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;
                         <th>Qty:</th>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;
                         <th>Location:</th>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;
                         <th></th>
                         </tr>
                     </thead>
