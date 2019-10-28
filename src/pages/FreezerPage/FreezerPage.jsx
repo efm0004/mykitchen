@@ -14,8 +14,6 @@ class FreezerPage extends Component {
         var freezerList = freezerInventory.map((item, idx) => {
             return(
                 <FreezerList 
-                // edit={this.state.edit}
-                // isEditing={this.state.isEditing}
                 key={idx}   
                 name={item.name}
                 staple={item.staple}
@@ -26,7 +24,6 @@ class FreezerPage extends Component {
                 handleUpdate={this.props.handleUpdate}
                 id={idx}
                 _id={item._id}
-                // user={this.state.user}
                 />
             )
         })

@@ -153,7 +153,7 @@ class App extends Component {
           <Route path='/signup' render={({history}) =>
             <SignupPage 
               history={history}
-              handleSignupOrLogin={this.handleSignuporLogin}
+              handleSignupOrLogin={this.handleSignupOrLogin}
             />
           } />
           <Route path='/comingsoon' render={() =>
