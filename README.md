@@ -22,7 +22,6 @@ Future features will also allow you to use MyKitchen to plan your weekly meals, 
 
 ### **Unsolved Problems**
 - Checkbox - I want to use a checkbox for Staples rather than a drop down
-- Bugs - Signup page won't go straight to logged in page
 
 ### **Future Enhancements**
 - Shopping List: essentially the same as for the Inventories list
