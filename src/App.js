@@ -15,7 +15,6 @@ class App extends Component {
   state = {
     user: userService.getUser(),
     inventories: [],
-    // isFreezerShowing: false,
   }
 
   componentDidMount = () => {
@@ -191,12 +190,21 @@ class App extends Component {
           <Route path='/pantry' render={() =>
             userService.getUser() ?
             <PantryPage 
-            edit={this.state.edit}
+              edit={this.state.edit}
               isEditing={this.state.isEditing}
               inventories={this.state.inventories}
               handleDelete={this.handleDelete}
               handleUpdate={this.handleUpdate}
               handleAddInventory={this.handleAddInventory}
+              user={this.state.user}
+            /> :
+            <Redirect to='/login' />
+        } />
+          <Route path='/shoppingbag' render={() =>
+            userService.getUser() ?
+            <ShoppingBagPage 
+              // handleDelete={this.handleDelete}
+              // handleUpdate={this.handleUpdate}
               user={this.state.user}
             /> :
             <Redirect to='/login' />
