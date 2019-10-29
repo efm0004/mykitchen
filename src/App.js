@@ -10,6 +10,7 @@ import ComingSoon from './components/ComingSoon/ComingSoon';
 import FreezerPage from './pages/FreezerPage/FreezerPage';
 import FridgePage from './pages/FridgePage/FridgePage';
 import PantryPage from './pages/PantryPage/PantryPage';
+import ShoppingBagPage from './pages/ShoppingBagPage/ShoppingBagPage';
 
 class App extends Component {
   state = {
