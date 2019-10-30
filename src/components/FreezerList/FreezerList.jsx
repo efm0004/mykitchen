@@ -8,12 +8,10 @@ class FreezerList extends Component {
     }
 
     handleShowEdit = (id) => {
-        console.log(id)
         this.setState({
             isEditing: !this.state.isEditing,
             edit: id
         })
-        console.log(this.state.edit)
     }
 
     removeEditForm = () => {
